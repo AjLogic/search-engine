@@ -1,4 +1,4 @@
-package dossearchengine.dossearchapi;
+package aj.search.engine;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DosSearchApiApplicationTests {
+public class SearchEngineApiApplicationTests {
 
 	@Test
 	public void contextLoads() {
