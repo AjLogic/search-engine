@@ -1,0 +1,96 @@
+{
+    "activity": {
+      "properties": {
+        "activityId": {
+          "type": "text"
+        },
+        "crcProviderId": {
+          "type": "keyword",
+          "null_value": "NULL"
+        },
+        "flexTeamAssociation": {
+          "type": "keyword",
+          "null_value": "NULL"
+        },
+        "exclusion": {
+          "type": "object",
+         
+          "properties": {
+            "ageGroup": {
+              "type": "integer_range"
+            },
+            "disability": {
+              "type": "keyword",
+              "null_value": "NULL"
+            },
+            "ethnicity": {
+              "type": "keyword",
+              "null_value": "NULL"
+            },
+            "gender": {
+              "type": "keyword",
+              "null_value": "NULL"
+            },
+            "genderReassignments": {
+              "type": "keyword",
+              "null_value": "NULL"
+            },
+            "marriage": {
+              "type": "keyword",
+              "null_value": "NULL"
+            },
+            "id": {
+              "type": "text"
+            }
+            
+          }
+        },
+        "inclusion": {
+          "type": "object",
+          
+          "properties": {
+            "ageGroup": {
+              "type": "integer_range"
+              
+            },
+            "disability": {
+              "type": "keyword",
+              "null_value": "NULL"
+            },
+            "ethnicity": {
+              "type": "keyword",
+              "null_value": "NULL"
+            },
+            "gender": {
+              "type": "keyword",
+              "null_value": "NULL"
+            },
+            "genderReassignments": {
+              "type": "keyword",
+              "null_value": "NULL"
+            },
+            "marriage": {
+              "type": "keyword",
+              "null_value": "NULL"
+            },
+            "id": {
+              "type": "text"
+            }
+          }
+        },
+        "primaryPathway": {
+          "type": "keyword",
+          "null_value": "NULL"
+        },
+        "secondaryPathway": {
+          "type": "keyword",
+          "null_value": "NULL"
+        },
+        "provisionEmailAddress": {
+          "type": "keyword",
+          "null_value": "NULL"
+        }
+      }
+    }
+  }
+

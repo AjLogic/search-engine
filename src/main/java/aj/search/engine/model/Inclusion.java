@@ -8,30 +8,22 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 
 
 
-public class Pass {
+public class Inclusion {
 
 	@Id
 	private String inclusionId;
 	
-	
-	@Field(type= FieldType.Nested,store=true)
-	private List<StudentBatch> ageGroup;
-	
+	private List<AgeGroup> ageGroup;
 	
 	private List<String> disability;
 	
-	@Field(type= FieldType.Nested)
 	private List<String> gender;
-	
 	
 	private List<String> genderReassignments;
 	
-	
-	private List<String> religion;
-	
-	
-	private List<String> sexualOrientation;
-	
+//	private List<String> religion;
+//	
+//	private List<String> sexualOrientation;
 	
 	private List<String> ethnicity;
 	
@@ -45,11 +37,11 @@ public class Pass {
 		this.inclusionId = inclusionId;
 	}
 
-	public List<StudentBatch> getAgeGroup() {
+	public List<AgeGroup> getAgeGroup() {
 		return ageGroup;
 	}
 
-	public void setAgeGroup(List<StudentBatch> ageGroup) {
+	public void setAgeGroup(List<AgeGroup> ageGroup) {
 		this.ageGroup = ageGroup;
 	}
 
@@ -77,22 +69,6 @@ public class Pass {
 		this.genderReassignments = genderReassignments;
 	}
 
-	public List<String> getReligion() {
-		return religion;
-	}
-
-	public void setReligion(List<String> religion) {
-		this.religion = religion;
-	}
-
-	public List<String> getSexualOrientation() {
-		return sexualOrientation;
-	}
-
-	public void setSexualOrientation(List<String> sexualOrientation) {
-		this.sexualOrientation = sexualOrientation;
-	}
-
 	public List<String> getEthnicity() {
 		return ethnicity;
 	}
@@ -108,7 +84,7 @@ public class Pass {
 	public void setMarriage(String marriage) {
 		this.marriage = marriage;
 	}
-	
+
 	
 	
 }

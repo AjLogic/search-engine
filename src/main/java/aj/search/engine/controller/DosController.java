@@ -6,14 +6,15 @@ import java.util.List;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import aj.search.engine.model.Task;
-import aj.search.engine.model.StudentBatch;
-import aj.search.engine.model.Fail;
-import aj.search.engine.model.Pass;
+import aj.search.engine.model.Activity;
+import aj.search.engine.model.AgeGroup;
+import aj.search.engine.model.Exclusion;
+import aj.search.engine.model.Inclusion;
 import aj.search.engine.repository.ActivityRepository;
 
 @RestController
@@ -23,49 +24,144 @@ public class DosController {
 	@Autowired
 	ActivityRepository activityRepository;
 	
-	@Transactional
 	@RequestMapping(value="/save")
-	public void SaveDosObject(HttpRequest request, HttpResponse response) {
+	public void saveDosObject(HttpRequest request, HttpResponse response) {
 	
-	Task activity = new Task();
-	activity.setActivityId("3");
-	List<String> team = new ArrayList<String>();
-	team.add("CO6");
-	activity.setFlexTeamAssociation(team);
-	activity.setCrcProviderId("1");
-	activity.setPrimaryPathway("A");
-	//activity.setSecondaryPathway("B");
-	Pass inclusion = new Pass();
-	List<StudentBatch> ageGroup  =new ArrayList<StudentBatch>();
-	StudentBatch age =new StudentBatch();
-	age.setId(5);
-	age.setMinAge(3);
-	age.setMaxAge(5);
-	StudentBatch age1 =new StudentBatch();
-	age1.setId(6);
-	age1.setMinAge(7);
-	age1.setMaxAge(10);
-	ageGroup.add(age);
-	ageGroup.add(age1);
-	inclusion.setAgeGroup(ageGroup);
-	List<String> gender  =new ArrayList<String>();
-	gender.add("Male");
-	inclusion.setGender(gender);
-	inclusion.setInclusionId("3");	
-	activity.setInclusion(inclusion);
-	
-	Fail exclusion = new Fail();
-	List<String> ethnicity  =new ArrayList<String>();
-	ethnicity.add("India");
-	ethnicity.add("USA");
-	exclusion.setEthnicity(ethnicity);
-	exclusion.setExclusionId("3");
-	activity.setExclusion(exclusion);
-	activityRepository.save(activity);
+		activityA34();
 	
 	}
+	private void activityA1() {
+		Activity activity = new Activity();
+		activity.setActivityId("20");
+		List<String> team = new ArrayList();
+		team.add("C07");
+		team.add("CO8");
+		activity.setFlexTeamAssociation(team);
+		activity.setCrcProviderId("1");
+		activity.setPrimaryPathway("A");
+		Inclusion inclusion = new Inclusion();
+		List<String> gender  = new ArrayList();
+		inclusion.setInclusionId("20");	
+		gender.add("Male");
+		gender.add("FeMale");
+		inclusion.setGender(gender);
+		inclusion.setMarriage("NO");
+		AgeGroup age1 = new  AgeGroup();
+		age1.setGte(1);
+		age1.setLte(5);
+		AgeGroup age = new  AgeGroup();
+		age.setGte(7);
+		age.setLte(10);
+		List<AgeGroup>ages = new ArrayList();
+		ages.add(age);
+		ages.add(age1);
+		inclusion.setAgeGroup(ages);
+		activity.setInclusion(inclusion);
+		Exclusion exclusion = new Exclusion();
+		@SuppressWarnings("rawtypes")
+		List<String> ethnicity  = new ArrayList();
+		ethnicity.add("white");
+		ethnicity.add("blck");
+		exclusion.setEthnicity(ethnicity);
+		exclusion.setExclusionId("20");
+		activity.setExclusion(exclusion);
+		activityRepository.save(activity);
+	}
 	
-	@Transactional
+	private void activityA2() {
+		Activity activity = new Activity();
+		activity.setActivityId("22");
+		List<String> team = new ArrayList();
+		team.add("C07");
+		team.add("CO8");
+		activity.setFlexTeamAssociation(team);
+		activity.setCrcProviderId("2");
+		activity.setSecondaryPathway("A");
+		activity.setProvisionEmailAddress("vinisha");
+		Inclusion inclusion = new Inclusion();
+		List<String> gender  = new ArrayList();
+		inclusion.setInclusionId("22");	
+		gender.add("Male");
+		gender.add("FeMale");
+		inclusion.setGender(gender);
+		AgeGroup age1 = new  AgeGroup();
+		age1.setGte(12);
+		age1.setLte(20);
+		AgeGroup age = new  AgeGroup();
+		
+		age.setGte(22);
+		age.setLte(25);
+		List<AgeGroup>a = new ArrayList();
+		a.add(age);
+		a.add(age1);
+		
+		Exclusion exclusion = new Exclusion();
+		exclusion.setAgeGroup(a);
+		exclusion.setMarriage("Yes");
+		List<String> ethnicity  = new ArrayList();
+		ethnicity.add("white");
+		ethnicity.add("blck");
+		exclusion.setEthnicity(ethnicity);
+		exclusion.setExclusionId("22");
+		activity.setExclusion(exclusion);
+		activityRepository.save(activity);
+	}
+	
+	private void activityA33() {
+			Activity activity = new Activity();
+			activity.setActivityId("33");
+			List<String> team = new ArrayList();
+			team.add("C07");
+			team.add("CO6");
+			activity.setFlexTeamAssociation(team);
+			activity.setCrcProviderId("33");
+			activity.setSecondaryPathway("A");
+			Inclusion inclusion = new Inclusion();
+			activity.setProvisionEmailAddress("vinisha");
+			List<String> gender  = new ArrayList();
+			inclusion.setInclusionId("33");	
+			gender.add("Male");
+			inclusion.setMarriage("NO");
+			inclusion.setGender(gender);
+			Exclusion exclusion = new Exclusion();
+			List<String> ethnicity  = new ArrayList();
+			ethnicity.add("white");
+			ethnicity.add("blck");
+			exclusion.setEthnicity(ethnicity);
+			exclusion.setExclusionId("33");
+			activity.setExclusion(exclusion);
+			activityRepository.save(activity);
+		}
+	
+	
+	private void activityA34() {
+		Activity activity = new Activity();
+		activity.setActivityId("34");
+		List<String> team = new ArrayList();
+		team.add("C07");
+		team.add("CO6");
+		activity.setFlexTeamAssociation(team);
+		activity.setCrcProviderId("34");
+		activity.setSecondaryPathway("A");
+		Inclusion inclusion = new Inclusion();
+		activity.setProvisionEmailAddress("vinisha");
+		List<String> gender  = new ArrayList();
+		inclusion.setInclusionId("34");	
+		gender.add("Male");
+		inclusion.setMarriage("NO");
+		inclusion.setGender(gender);
+		Exclusion exclusion = new Exclusion();
+		List<String> ethnicity  = new ArrayList();
+		ethnicity.add("white");
+		ethnicity.add("AA");
+		exclusion.setEthnicity(ethnicity);
+		exclusion.setExclusionId("34");
+		activity.setExclusion(exclusion);
+		activityRepository.save(activity);
+	}
+	
+	
+	
 	@RequestMapping(value="/delete")
 	public void deleteDosObject(HttpRequest request, HttpResponse response) {
 		activityRepository.deleteAll();
